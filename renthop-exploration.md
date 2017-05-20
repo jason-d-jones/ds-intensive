@@ -275,6 +275,7 @@ df.describe()
 
 ```python
 sns.stripplot(x="interest_level", y="n_photos", data=df, order=["low", "medium", "high"], jitter=True, alpha=0.2)
+plt.show()
 sns.violinplot(x="interest_level", y="n_photos", data=df, order=["low", "medium", "high"])
 plt.show()
 ```
@@ -282,6 +283,12 @@ plt.show()
 
 ![png](output_7_0.png)
 
+
+
+![png](output_7_1.png)
+
+
+For the high and medium interest listings, the distribution of the number of photos per listing seems quite similar. For the most part the low interest listings also follow this pattern. However, there is a peak of in the low interest data with the number of pictures around 0-1. This seems consistent with the hypothesis that some of the listings have low interest, because the lister has not put as much effort into the listing. The number of pictures would be part of that.
 
 ## II. Does length of description correlate with interest level?
 
@@ -315,7 +322,7 @@ _ = sns.plt.ylabel('Description length (number of characters)')
 ```
 
 
-![png](output_13_0.png)
+![png](output_14_0.png)
 
 
 ## III. Does description length correlate with listing price?
@@ -335,7 +342,7 @@ _ = sns.plt.xlabel('Price')
 ```
 
 
-![png](output_15_0.png)
+![png](output_16_0.png)
 
 
 
@@ -352,7 +359,7 @@ _ = sns.plt.xlabel('Price')
 ```
 
 
-![png](output_16_0.png)
+![png](output_17_0.png)
 
 
 
@@ -369,7 +376,7 @@ _ = sns.plt.xlabel('Price')
 ```
 
 
-![png](output_17_0.png)
+![png](output_18_0.png)
 
 
 I thought that more expensive properties might have more features to describe in the advertisement. This does not seem to be the case. 
@@ -547,7 +554,7 @@ _ = plt.show()
 
 
 
-![png](output_25_1.png)
+![png](output_26_1.png)
 
 
 ## V. Does day of week posted correlate with interest level?
@@ -583,7 +590,7 @@ plt.show()
 
 
 
-![png](output_31_1.png)
+![png](output_32_1.png)
 
 
 ### c) Draw scatter plot of day-of-week posted by interest level
@@ -614,8 +621,10 @@ plt.show()
 ```
 
 
-![png](output_36_0.png)
+![png](output_37_0.png)
 
+
+From the plot above, we see that the low interest postings are more likely to be posted on day 5 and 6. This could be because they are bad days to list a property, which results in lower interest level. It could also be because more sophisticated marketers of properties perceive these to be bad posting days (whether true or not) and avoid them. Or maybe it is a better day to post certain listings that will have low interest, such as very expensive rentals.
 
 ## VI. Does posting time of day correlate with interest level?
 
@@ -654,7 +663,7 @@ draw_hist_by_hour('high', highcolor)
 ```
 
 
-![png](output_43_0.png)
+![png](output_45_0.png)
 
 
 #### i) Histgram for hour-of-day posted for the medium interest level
@@ -665,7 +674,7 @@ draw_hist_by_hour('medium', medcolor)
 ```
 
 
-![png](output_45_0.png)
+![png](output_47_0.png)
 
 
 #### i) Histgram for hour-of-day posted for the low interest level
@@ -676,8 +685,10 @@ draw_hist_by_hour('low', lowcolor)
 ```
 
 
-![png](output_47_0.png)
+![png](output_49_0.png)
 
+
+The low interest postings seem to have difference in posting time distribution. This seems most evident around 1 am and in the early afternoon. This could be a marker for certain companies which have an automated posting system that runs at a certain time. Or it may be that a listing that is newly posted in the prime time for viewing may get more attention.
 
 ### c) Visualize postings by hour vs interest level as violin
 
@@ -692,7 +703,7 @@ _ = sns.violinplot(x="interest_level", y="listing_hour_of_day", data=df, order=[
 ```
 
 
-![png](output_49_0.png)
+![png](output_52_0.png)
 
 
 ## VII. How does price correlate with interest level?
@@ -706,13 +717,10 @@ _ = sns.violinplot(x="interest_level", y="price", data=df_p, order=["low", "medi
 ```
 
 
-![png](output_51_0.png)
+![png](output_54_0.png)
 
 
-
-```python
-
-```
+This plot shows that there is a trend towards decreasing interest with increasing price. I would assume this is related to the local income distribution.
 
 
 ```python
